@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html lang="{{.Language}}" dir="{{if eq .Language "fa"}}rtl{{else}}ltr{{end}}">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Admin</title>
+    <title>ارتباط با ادمین</title>
     <link rel="stylesheet" href="./main.css">
     <script src="main.js"></script>
     <script src="translations.js"></script>
@@ -26,20 +26,20 @@
     </nav>
     
     <div class="glass-panel fade-in" style="text-align: center; display: inline-block; max-width: 800px; margin: 20px auto;">
-        <h1>Contact Administrator</h1>
+        <h1>ارتباط با ادمین</h1>
         
         <div class="glass-panel" style="background: rgba(255,255,255,0.03); margin-top: 30px;">
             <h3>📧 Get in Touch</h3>
             <p style="color: var(--text-secondary); font-size: 1em; line-height: 1.8;">
-                For support, questions, or to report issues, please reach out to the server administrator.
+                هر گونه پرسش پاسخ یا گزارش مشکلات
             </p>
             
             <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
                 <a href="mailto:admin@example.com" class="cta-button" style="font-size: 0.95em; padding: 12px 20px;">
-                    ��� Send Email
+                    ارسال پیانم در دلتاچت
                 </a>
                 <a href="index.html" class="cta-button" style="background: rgba(255,255,255,0.1); font-size: 0.95em; padding: 12px 20px;">
-                    🏠 Back to Home
+                    برگشت به خانه
                 </a>
             </div>
         </div>
@@ -51,7 +51,7 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            applyTranslations(document.documentElement.lang || 'en');
+            applyTranslations(document.documentElement.lang || 'fa');
         });
     </script>
 </body>
