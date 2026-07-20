@@ -18,7 +18,7 @@
 -->
 
 <!DOCTYPE html>
-<html lang="{{.Language}}" dir="{{if eq .Language "fa"}}rtl{{else}}ltr{{end}}">
+<html lang="{{.Language}}" dir="{{if eq .Language " fa"}}rtl{{else}}ltr{{end}}">
 
 <head>
     <meta charset="utf-8" />
@@ -33,18 +33,25 @@
 
 <body>
 
-    <header class="navbar">
-        <button class="navbar__toggle" onclick="toggleNav()" aria-label="Menu" data-i18n="nav_menu_label">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="2" y1="4" x2="14" y2="4"/><line x1="2" y1="8" x2="14" y2="8"/><line x1="2" y1="12" x2="14" y2="12"/></svg>
-        </button>
-        <ul class="navbar__menu" id="nav-menu">
-            <li><a href="/" data-i18n="nav_home">Home</a></li>
-            <li><a href="/share" data-i18n="nav_share">Share</a></li>
-            <li><a href="/info.html" data-i18n="nav_info">Info</a></li>
-            <li><a href="/security.html" data-i18n="nav_security">Security</a></li>
-            <li><a href="/deploy.html" data-i18n="nav_deploy">Deploy</a></li>
+    <nav class="navbar glass-panel">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme"><svg xmlns="http://www.w3.org/2000/svg"
+                width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg></button>
+        <div class="menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+            <li><a href="info.html" data-i18n="nav_info">Info</a></li>
+            <li><a href="security.html" data-i18n="nav_security">Security</a></li>
+            <li><a href="deploy.html" data-i18n="nav_deploy">Deploy</a></li>
+            <li><a href="docs_index.html" data-i18n="nav_docs">Docs</a></li>
         </ul>
-    </header>
+    </nav>
 
     <div class="text-center">
         <h2><span data-i18n="index_title">Chat Server</span> {{.MailDomain | cleanDomain}}</h2>
@@ -53,7 +60,8 @@
 
     {{if .RegistrationOpen}}
     <div class="text-center">
-        <button class="btn btn--primary mt-md" onclick="generateAccount()" id="generate-btn" data-i18n="index_generate">Create New Account</button>
+        <button class="btn btn--primary mt-md" onclick="generateAccount()" id="generate-btn"
+            data-i18n="index_generate">Create New Account</button>
 
         <div id="qr-container" class="hidden mt-md">
             <div class="qr-wrap">
@@ -67,13 +75,16 @@
         <div id="error-message" class="alert alert--danger hidden"></div>
         <div id="deltachat-error" class="alert alert--warning hidden">
             <strong data-i18n="index_dc_not_installed_title">DeltaChat is not installed</strong>
-            <p class="mt-sm text-sm" data-i18n="index_dc_not_installed_text">Please install the DeltaChat app first, then use the "Copy Link" button.</p>
+            <p class="mt-sm text-sm" data-i18n="index_dc_not_installed_text">Please install the DeltaChat app first,
+                then use the "Copy Link" button.</p>
         </div>
 
         <div id="account-result" class="hidden">
             <div class="flex flex-center flex-wrap gap-sm mt-md">
-                <button class="btn btn--primary" onclick="openDeltaChat()" id="open-deltachat-btn" disabled data-i18n="index_open_dc">Open DeltaChat</button>
-                <button class="btn btn--secondary" onclick="copyLink()" id="copy-link-btn" disabled data-i18n="index_copy_link">Copy Link</button>
+                <button class="btn btn--primary" onclick="openDeltaChat()" id="open-deltachat-btn" disabled
+                    data-i18n="index_open_dc">Open DeltaChat</button>
+                <button class="btn btn--secondary" onclick="copyLink()" id="copy-link-btn" disabled
+                    data-i18n="index_copy_link">Copy Link</button>
             </div>
         </div>
     </div>
@@ -83,14 +94,16 @@
         <ol>
             <li data-i18n="index_manual_step1">In DeltaChat, select "Create new profile".</li>
             <li data-i18n="index_manual_step2">Then tap "Use Other Server".</li>
-            <li data-i18n="index_manual_step3">Copy the text below and in the scan code section, tap "Paste from clipboard":</li>
+            <li data-i18n="index_manual_step3">Copy the text below and in the scan code section, tap "Paste from
+                clipboard":</li>
         </ol>
         <div class="code-block" id="manual-link" onclick="copyText(this)"></div>
     </div>
 
     <div class="card mt-lg text-start hidden" id="manual-card-ios">
         <strong data-i18n="index_ios_title">iPhone account creation guide:</strong>
-        <p class="mt-sm" data-i18n="index_ios_intro">First copy the link below, then follow these steps in DeltaChat:</p>
+        <p class="mt-sm" data-i18n="index_ios_intro">First copy the link below, then follow these steps in DeltaChat:
+        </p>
         <div class="code-block" id="manual-link-ios" onclick="copyText(this)"></div>
         <ol class="mt-md">
             <li>Use Other Server</li>
@@ -104,9 +117,11 @@
 
     <div class="card text-start" id="ios-card">
         <strong data-i18n="index_ios_note_title">Note for iOS (iPhone) users:</strong>
-        <p class="text-sm mt-sm" data-i18n-html="index_ios_note_text">iPhone users should copy the standard link above and during new account creation follow:</p>
+        <p class="text-sm mt-sm" data-i18n-html="index_ios_note_text">iPhone users should copy the standard link above
+            and during new account creation follow:</p>
         <p class="text-sm mono" data-i18n="index_ios_note_path">new account > use other server > scan > paste</p>
-        <p class="text-sm mt-sm" data-i18n="index_ios_note_detail">Although clicking the login button may work on iOS, due to system limitations, the copy-paste method is recommended.</p>
+        <p class="text-sm mt-sm" data-i18n="index_ios_note_detail">Although clicking the login button may work on iOS,
+            due to system limitations, the copy-paste method is recommended.</p>
     </div>
 
     <div class="card card--centered mt-lg">
@@ -117,7 +132,8 @@
     {{else}}
     <div class="card card--danger card--centered mt-lg">
         <h3 class="text-danger" data-i18n="index_reg_closed_title">Registration Closed</h3>
-        <p data-i18n="index_reg_closed_text">New user registration on this server is temporarily disabled. Please use other servers.</p>
+        <p data-i18n="index_reg_closed_text">New user registration on this server is temporarily disabled. Please use
+            other servers.</p>
     </div>
     {{end}}
 

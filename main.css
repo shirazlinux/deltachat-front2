@@ -85,6 +85,7 @@ a:hover { filter: brightness(1.05); text-decoration: underline; }
   padding: 12px 20px;
   margin-bottom: 32px;
   background: transparent;
+  direction: ltr;
 }
 
 .nav-links {
