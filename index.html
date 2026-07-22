@@ -28,7 +28,7 @@
     <script src="./translations.js"></script>
     <script src="./qrcode.min.js"></script>
     <script src="./main.js"></script>
-    <link rel="icon" href="/logo.svg">
+    <link rel="icon" href="/webicon320.png">
     <style>
         .code-block {
             background: var(--code-bg);
@@ -72,7 +72,7 @@
         }
 
         .qr-wrap img {
-            border-radius: 12px;
+            border-radius: 4px;
             display: block;
             pointer-events: none;
         }
@@ -258,7 +258,9 @@
         <ul class="nav-links">
             <li><a href="index.html" data-i18n="nav_home">Home</a></li>
             <li><a href="info.html" data-i18n="nav_info">Info</a></li>
+            <li><a href="privacy.html" data-i18n="nav_privacy">Privacy</a></li>
             <li><a href="security.html" data-i18n="nav_security">Security</a></li>
+            <li><a href="apps/" data-i18n="nav_applications">applications</a></li>
             <li><a href="deploy.html" data-i18n="nav_deploy">Deploy</a></li>
             <li><a href="docs_index.html" data-i18n="nav_docs">Docs</a></li>
         </ul>
@@ -329,7 +331,7 @@
         <div class="glass-panel" style="background: rgba(255,255,255,0.03); margin-top: 30px; text-align: center;">
             <h3 style="text-align: center; margin-top: 0;" data-i18n="index_share_title">Share Your ID</h3>
             <p style="margin-bottom: 15px;" data-i18n="index_share_text">You can share your DeltaChat ID so others can contact you.</p>
-            <a href="/share" class="btn btn--primary" data-i18n="index_share_btn">Share My ID</a>
+            <a href="/share.html" class="btn btn--primary" data-i18n="index_share_btn">Share My ID</a>
         </div>
         {{else}}
         <div class="glass-panel" style="background: rgba(255,0,0,0.1); margin-top: 30px; text-align: center;">
@@ -337,6 +339,27 @@
             <p style="color: var(--text-secondary);" data-i18n="index_reg_closed_text">New user registration on this server is temporarily disabled. Please use other servers.</p>
         </div>
         {{end}}
+
+
+    <div class="glass-panel fade-in">
+    <h1 data-i18n="contact_admin_title">ارتباط با ادمین</h1>
+    
+    <div class="glass-panel" style="background: rgba(255,255,255,0.03); margin-top: 30px; text-align: right;">
+        <h3 data-i18n="contact_get_in_touch">📧 تماس با ادمین</h3>
+
+        <p style="color: var(--text-secondary); font-size: 1em; line-height: 1.8;" data-i18n="contact_description">
+            هر گونه پرسش، پاسخ یا گزارش مشکلات
+        </p>
+        
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
+            <a href="mailto:https://i.delta.chat/#89EBEFEF4359C9555ABB5BED7469BDCD99C0462B&v=3&i=y_yeBxFUmD4GkTFpHlCPhcfn&s=b1TgipmWl6CX0bC8aI1vz--F&a=mzt9igijtium%40delta.sudoshz.ir&n=sudoshz" class="cta-button" 
+               style="font-size: 0.95em; padding: 12px 20px;" 
+               data-i18n="contact_send_message">
+                ارسال پیام در دلتاچت
+            </a>
+        </div>
+    </div>
+</div>
     </div>
 
     <footer>

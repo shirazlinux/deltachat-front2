@@ -126,6 +126,14 @@ a:hover { filter: brightness(1.05); text-decoration: underline; }
   border: none;
 }
 
+strong {
+  text-align: right;
+}
+
+p {
+  text-align: right;
+}
+
 .bar { width: 25px; height: 3px; background-color: var(--text-primary); border-radius: 3px; transition: all 0.3s ease; }
 
 /* responsive: show hamburger earlier for better layout */
